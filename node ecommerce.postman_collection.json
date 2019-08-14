@@ -1,0 +1,938 @@
+{
+	"info": {
+		"_postman_id": "f579dfeb-99ea-4907-80d4-c56008c76ee8",
+		"name": "node ecommerce",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get product",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d09971f9-211e-4042-80ac-0a5869adffd4",
+						"exec": [
+							"pm.test(\"Check Status\", function () { \r",
+							"     var json = pm.response.json();\r",
+							"     pm.expect(json.status).to.equal(true);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"check data\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Nike\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\":\"j@j.com\",\n\t\"password\":\"123\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/product/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"product",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get product Id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "42f69ed1-446c-468e-9952-5e6647b1ab27",
+						"exec": [
+							"pm.test(\"Check Status\", function () { \r",
+							"     var json = pm.response.json();\r",
+							"     pm.expect(json.status).to.equal(true);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"check data\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Nike\");\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/product/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"product",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post address",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "160343ba-1b54-4e08-8a65-d86763eb5652",
+						"exec": [
+							"pm.test(\"Check Status\", function () { \r",
+							"     var json = pm.response.json();\r",
+							"     pm.expect(json.status).to.equal(true);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"check data\", function () {\r",
+							"    var json = pm.response.json();\r",
+							"     pm.expect(json.message).to.equal('Added successfully');\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"id\":2,\r\n\t\"address1\":\"l2\",\r\n\t\"address2\":\"unit 106\",\r\n    \"postal\":\"N2G3M4\",\r\n    \"city\":\"Waterloo\",\r\n    \"province\":\"Ontario\",\r\n    \"country\":\"Canada\" \r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/address/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"address",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "address  fetch",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f234f963-e341-483b-a039-64198ecd52e0",
+						"exec": [
+							"pm.test(\"Check Status\", function () { \r",
+							"     var json = pm.response.json();\r",
+							"     pm.expect(json.status).to.equal(true);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"check data\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"retrieved all successfully\");\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/address/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"address",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete address",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "806f6df2-5b5a-4e42-ab2b-dfe1d21425b2",
+						"exec": [
+							"pm.test(\"Check Status\", function () { \r",
+							"     var json = pm.response.json();\r",
+							"     pm.expect(json.status).to.equal(true);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/address/remove/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"address",
+						"remove",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2729cb3e-6a83-4d2e-b202-f32b0e18e9d0",
+						"exec": [
+							"pm.test(\"Check Status\", function () { \r",
+							"     var json = pm.response.json();\r",
+							"     pm.expect(json.status).to.equal(true);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\":\"admin1@gmail.com\",\n\t\"password\":\"123\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/user/login/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"login",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user signup",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fa0025cd-08d4-46cf-8842-eaa137c48944",
+						"exec": [
+							"pm.test(\"Check Status\", function () { \r",
+							"     var json = pm.response.json();\r",
+							"     pm.expect(json.status).to.equal(true);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\":11,\n\t\"firstName\":\"New\" ,\n    \"lastName\":\"user\" ,\n    \"email\":\"admin1@gmail.com\" ,\n    \"phone\":\"9879879877\",\n    \"password\":\"123\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/user/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user update",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e2d29325-6ec9-45e8-a8f4-e7091d87ec29",
+						"exec": [
+							"pm.test(\"Check Status\", function () { \r",
+							"     var json = pm.response.json();\r",
+							"     pm.expect(json.status).to.equal(true);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"firstName\":\"himani\" ,\n    \"lastName\":\"patel1\" ,\n    \"email\":\"himani@gmail.com\" ,\n    \"phone\":\"9879879877\",\n    \"password\":\"123\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/user/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fa364b65-e1e5-48a3-bedc-620a8c115acb",
+						"exec": [
+							"pm.test(\"Check Status\", function () { \r",
+							"     var json = pm.response.json();\r",
+							"     pm.expect(json.status).to.equal(true);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"check data\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"himani\");\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get user all",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "821facbd-d2b4-4a48-b464-96d5851f44c6",
+						"exec": [
+							"pm.test(\"Check Status\", function () { \r",
+							"     var json = pm.response.json();\r",
+							"     pm.expect(json.status).to.equal(true);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"check data\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"himani\");\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/user/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "88ae860b-dcc3-4907-8d75-c0d3f9858da4",
+						"exec": [
+							"pm.test(\"Check Status\", function () { \r",
+							"     var json = pm.response.json();\r",
+							"     pm.expect(json.status).to.equal(true);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/user/remove",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"remove"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "logout user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0c515c1f-3822-4374-bdf7-ddcc63779876",
+						"exec": [
+							"pm.test(\"Check Status\", function () { \r",
+							"     var json = pm.response.json();\r",
+							"     pm.expect(json.status).to.equal(true);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/user/logout",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update address",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9c406920-82a0-49dd-b3d3-cd13ca384fb0",
+						"exec": [
+							"pm.test(\"Check Status\", function () { \r",
+							"     var json = pm.response.json();\r",
+							"     pm.expect(json.status).to.equal(true);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"address1\":\"l2\",\r\n\t\"address2\":\"unit 106\",\r\n    \"postal\":\"N2G3M4\",\r\n    \"city\":\"Waterloo\",\r\n    \"province\":\"Ontario\",\r\n    \"country\":\"Canada\" \r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/address/update/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"address",
+						"update",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get comment",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8a6ed61a-47e5-42c8-ab70-42cf019624ec",
+						"exec": [
+							"pm.test(\"Check Status\", function () { \r",
+							"     var json = pm.response.json();\r",
+							"     pm.expect(json.status).to.equal(true);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"check data\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Good\");\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/comment/all/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"comment",
+						"all",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post comment",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0141ddfd-680b-4dab-8a32-c4abf8200f4d",
+						"exec": [
+							"pm.test(\"Check Status\", function () { \r",
+							"     var json = pm.response.json();\r",
+							"     pm.expect(json.status).to.equal(true);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"rating\":8,\n\t\"comment\":\"very good stuff\",\n\t\"productid\":1,\n\t\"imagePath\":\"xyz.jpg\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/comment/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"comment",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get cart all",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7c94f808-6d8d-4b44-b5a6-d765dd26b402",
+						"exec": [
+							"pm.test(\"Check Status\", function () { \r",
+							"     var json = pm.response.json();\r",
+							"     pm.expect(json.status).to.equal(true);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"rating\":8,\n\t\"comment\":\"very good stuff\",\n\t\"productid\":1,\n\t\"imagePath\":\"xyz.jpg\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/cart/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"cart",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post cart",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3e6188fb-d057-47d8-84b2-178039ece166",
+						"exec": [
+							"pm.test(\"Check Status\", function () { \r",
+							"     var json = pm.response.json();\r",
+							"     pm.expect(json.status).to.equal(true);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"productid\":4,\n\t\"qty\":1\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/cart/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"cart",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete cart",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "34693cfb-1179-4b4a-be8f-87d651fb10f4",
+						"exec": [
+							"pm.test(\"Check Status\", function () { \r",
+							"     var json = pm.response.json();\r",
+							"     pm.expect(json.status).to.equal(true);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/cart/remove/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"cart",
+						"remove",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "order",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "41783cce-b3be-44cb-a85a-eb563c6ccd9b",
+						"exec": [
+							"pm.test(\"Check Status\", function () { \r",
+							"     var json = pm.response.json();\r",
+							"     pm.expect(json.status).to.equal(true);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"qty\":1\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/order/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"order",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "order post",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "926e1975-fc26-4dec-83bf-8a2117a79204",
+						"exec": [
+							"pm.test(\"Check Status\", function () { \r",
+							"     var json = pm.response.json();\r",
+							"     pm.expect(json.status).to.equal(true);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"check data\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Added successfully\");\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"shippingAddressId\":2\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/order/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"order",
+						"add"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
